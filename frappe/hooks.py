@@ -57,6 +57,7 @@ email_append_to = ["Event", "ToDo", "Communication"]
 
 calendars = ["Event"]
 
+fixtures = ["Property Setter", "Custom Field", "Website Settings"]
 # login
 
 on_session_creation = [

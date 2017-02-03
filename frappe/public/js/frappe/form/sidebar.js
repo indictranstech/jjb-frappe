@@ -51,7 +51,7 @@ frappe.ui.form.Sidebar = Class.extend({
 			this.sidebar.toggle(false);
 		} else {
 			this.sidebar.toggle(true);
-			this.frm.assign_to.refresh();
+			cur_frm.assign_to.refresh();
 			this.frm.attachments.refresh();
 			this.frm.shared.refresh();
 			this.frm.viewers.refresh();
@@ -98,7 +98,7 @@ frappe.ui.form.Sidebar = Class.extend({
 	},
 	make_assignments: function() {
 		if(!inList(user_roles, "Branch User")) {
-			this.frm.assign_to = new frappe.ui.form.AssignTo({
+			cur_frm.assign_to = new frappe.ui.form.AssignTo({
 				parent: this.sidebar.find(".form-assignments"),
 				frm: this.frm
 			});
