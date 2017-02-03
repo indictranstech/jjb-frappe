@@ -103,16 +103,18 @@ def remove(doctype, name, assign_to):
 	except frappe.DoesNotExistError:
 		pass
 
+	print"removed!"
 	# clear assigned_to if field exists
-	if frappe.get_meta(doctype).get_field("assigned_to"):
-		frappe.db.set_value(doctype, name, "assigned_to", None)
+	# if frappe.get_meta(doctype).get_field("assigned_to"):
+	# 	frappe.db.set_value(doctype, name, "assigned_to", None)
 
 	return get({"doctype": doctype, "name": name})
 
 def clear(doctype, name):
 	for assign_to in frappe.db.sql_list("""select owner from `tabToDo`
 		where reference_type=%(doctype)s and reference_name=%(name)s""", locals()):
-			remove(doctype, name, assign_to)
+			# remove(doctype, name, assign_to)
+			pass
 
 def notify_assignment(assigned_by, owner, doc_type, doc_name, action='CLOSE',
 	description=None, notify=0):
